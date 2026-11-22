@@ -294,7 +294,7 @@ public class PlayerReachDisplayPositionConfigScreen extends Screen
 
         int button = event.button();
 
-        if (dragging && button == 0)
+        if (dragging && button == InputConstants.MOUSE_BUTTON_LEFT)
         {
             PlayerReachDisplayConfig previewConfig = makePreviewConfig();
 
