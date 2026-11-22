@@ -2,6 +2,8 @@ package kikijiji.playerreachdisplay.screen;
 
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.input.KeyEvent;
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
@@ -574,7 +576,7 @@ public class EntityListPopup
 
     public boolean mouseClicked(double mouseX, double mouseY, int button)
     {
-        if (button != 0)
+        if (button != InputConstants.MOUSE_BUTTON_LEFT)
         {
             return true;
         }
@@ -757,10 +759,10 @@ public class EntityListPopup
         return true;
     }
 
-    public boolean keyPressed(int keyCode)
+    public boolean keyPressed(KeyEvent event)
     {
         // ESC
-        if (keyCode == 256)
+        if (event.isEscape())
         {
             workingEntries.clear();
             workingEntries.addAll(copyList(originalEntries));
@@ -776,7 +778,7 @@ public class EntityListPopup
         }
 
         // Backspace
-        if (keyCode == 259)
+        if (event.key() == InputConstants.KEY_BACKSPACE)
         {
             if (!inputBuffer.isEmpty())
             {
@@ -787,7 +789,7 @@ public class EntityListPopup
         }
 
         // Enter / Numpad Enter
-        if (keyCode == 257 || keyCode == 335)
+        if (event.isConfirmation())
         {
             tryAddInput();
 
