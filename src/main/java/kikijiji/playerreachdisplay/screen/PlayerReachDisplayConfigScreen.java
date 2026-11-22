@@ -2149,16 +2149,16 @@ public class PlayerReachDisplayConfigScreen extends Screen
     @Override
     public boolean keyPressed(KeyEvent event)
     {
-        int keyCode = event.key();
+        
 
         if (colorPopup != null)
         {
-            return colorPopup.keyPressed(keyCode);
+            return colorPopup.keyPressed(event);
         }
 
         if (entityListPopup != null)
         {
-            return entityListPopup.keyPressed(keyCode);
+            return entityListPopup.keyPressed(event);
         }
 
         return super.keyPressed(event);
