@@ -11,6 +11,7 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.KeyEvent;
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 
@@ -223,7 +224,7 @@ public class PlayerReachDisplayPositionConfigScreen extends Screen
     public boolean keyPressed(KeyEvent event)
     {
         // ESC
-        if (event.key() == 256)
+        if (event.isEscape())
         {
             Minecraft.getInstance().gui.setScreen(parent);
             return true;
@@ -244,7 +245,7 @@ public class PlayerReachDisplayPositionConfigScreen extends Screen
 
         int button = event.button();
 
-        if (button == 0)
+        if (button == InputConstants.MOUSE_BUTTON_LEFT)
         {
             PlayerReachDisplayConfig previewConfig = makePreviewConfig();
 
@@ -353,7 +354,7 @@ public class PlayerReachDisplayPositionConfigScreen extends Screen
     @Override
     public boolean mouseReleased(MouseButtonEvent event)
     {
-        if (event.button() == 0)
+        if (event.button() == InputConstants.MOUSE_BUTTON_LEFT)
         {
             dragging = false;
         }
