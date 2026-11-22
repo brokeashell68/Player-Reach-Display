@@ -698,7 +698,7 @@ public class ColorPickerPopup
 
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dx, double dy)
     {
-        if (button != 0)
+        if (button != InputConstants.MOUSE_BUTTON_LEFT)
         {
             return true;
         }
@@ -804,7 +804,7 @@ public class ColorPickerPopup
         }
 
         // ESC: 편집 중이 아닐 때만 팝업 취소
-        if (keyCode == 256)
+        if (event.isEscape())
         {
             onChanged.accept(originalColor);
             onClose.run();
