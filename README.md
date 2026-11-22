@@ -9,7 +9,7 @@ This project is based on [Player Reach Display by KikiJiji](https://github.com/K
 - **Original creator:** [KikiJiji](https://github.com/K1kiJiji) — original idea, design, and mod implementation.
 - **26.3 port and compatibility updates:** [BrokeAsHell](https://github.com/brokeashell68) — adaptation for Minecraft 26.3 Fabric and port testing.
 
-I have great respect for KikiJiji's work. The original concept and mod are theirs; this repository contains compatibility work to make the mod run on Minecraft 26.3. This is an **unofficial port** and is not presented as an official release by the original author.
+I have great respect for KikiJiji's work. The original concept and mod are theirs; this repository contains compatibility work to make the mod run on Minecraft 26.3. The original author's public pull request for Minecraft 26.2 is [PR #17](https://github.com/K1kiJiji/Player-Reach-Display/pull/17). That PR is separate from this independently maintained 26.3 port. This is an **unofficial port** and is not presented as an official release by the original author.
 
 ## Compatibility
 
