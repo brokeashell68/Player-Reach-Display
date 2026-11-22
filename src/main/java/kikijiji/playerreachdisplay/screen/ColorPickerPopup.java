@@ -2,6 +2,8 @@ package kikijiji.playerreachdisplay.screen;
 
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.input.KeyEvent;
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
@@ -579,7 +581,7 @@ public class ColorPickerPopup
 
     public boolean mouseClicked(double mouseX, double mouseY, int button)
     {
-        if (button != 0)
+        if (button != InputConstants.MOUSE_BUTTON_LEFT)
         {
             return true;
         }
@@ -732,7 +734,7 @@ public class ColorPickerPopup
 
     public boolean mouseReleased(double mouseX, double mouseY, int button)
     {
-        if (button == 0)
+        if (button == InputConstants.MOUSE_BUTTON_LEFT)
         {
             draggingSV    = false;
             draggingHue   = false;
@@ -757,12 +759,12 @@ public class ColorPickerPopup
 
     /* ----- 키 입력 ----- */
 
-    public boolean keyPressed(int keyCode)
+    public boolean keyPressed(KeyEvent event)
     {
         if (editingHex)
         {
             // Backspace
-            if (keyCode == 259)
+            if (event.key() == InputConstants.KEY_BACKSPACE)
             {
                 if (hexReplaceOnType)
                 {
@@ -782,7 +784,7 @@ public class ColorPickerPopup
             }
 
             // Enter / Numpad Enter
-            if (keyCode == 257 || keyCode == 335)
+            if (event.isConfirmation())
             {
                 applyHexBufferIfValid();
                 stopHexEditing();
@@ -791,7 +793,7 @@ public class ColorPickerPopup
             }
 
             // ESC: 팝업 닫지 말고 HEX 편집만 종료
-            if (keyCode == 256)
+            if (event.isEscape())
             {
                 stopHexEditing();
 
