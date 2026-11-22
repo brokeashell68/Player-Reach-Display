@@ -268,6 +268,8 @@ public class PlayerReachDisplayConfigScreen extends Screen
     @Override
     protected void init()
     {
+        Minecraft.getInstance().onTextInputFocusChange(this, true);
+
         this.clearWidgets();
 
         sectionHeaders.clear();
@@ -2105,6 +2107,15 @@ public class PlayerReachDisplayConfigScreen extends Screen
 
         widget.active = enabled;
         widget.setAlpha(enabled ? 1.0f : 0.4f);
+    }
+
+
+
+    @Override
+    public void removed()
+    {
+        Minecraft.getInstance().onTextInputFocusChange(this, false);
+        super.removed();
     }
 
 
